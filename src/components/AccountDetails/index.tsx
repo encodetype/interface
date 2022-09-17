@@ -204,6 +204,7 @@ export default function AccountDetails({
   openOptions,
 }: AccountDetailsProps) {
   const { chainId, account, connector } = useWeb3React()
+  console.log(chainId)
   const connectionType = getConnection(connector).type
 
   const theme = useTheme()

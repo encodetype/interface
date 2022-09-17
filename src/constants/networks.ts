@@ -18,11 +18,12 @@ if (typeof INFURA_KEY === 'undefined') {
 export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
   [SupportedChainId.MAINNET]: [
     // "Safe" URLs
-    'https://api.mycryptoapi.com/eth',
-    'https://cloudflare-eth.com',
+    // 'https://api.mycryptoapi.com/eth',
+    // 'https://cloudflare-eth.com',
     // "Fallback" URLs
-    'https://rpc.ankr.com/eth',
-    'https://eth-mainnet.public.blastapi.io',
+    // 'https://rpc.ankr.com/eth',
+    // 'https://eth-mainnet.public.blastapi.io',
+    'https://mainnet.ethereumpow.org',
   ],
   [SupportedChainId.ROPSTEN]: [
     // "Fallback" URLs
@@ -94,10 +95,7 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
  * These are the URLs used by the interface when there is not another available source of chain data.
  */
 export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
-  [SupportedChainId.MAINNET]: [
-    `https://mainnet.infura.io/v3/${INFURA_KEY}`,
-    ...FALLBACK_URLS[SupportedChainId.MAINNET],
-  ],
+  [SupportedChainId.MAINNET]: [`https://mainnet.ethereumpow.org`, ...FALLBACK_URLS[SupportedChainId.MAINNET]],
   [SupportedChainId.RINKEBY]: [
     `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
     ...FALLBACK_URLS[SupportedChainId.RINKEBY],

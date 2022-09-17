@@ -64,7 +64,7 @@ export default function MigrateV2() {
     () =>
       trackedTokenPairs.map((tokens) => {
         // sushi liquidity token or null
-        const sushiLiquidityToken = chainId === 1 ? toSushiLiquidityToken(tokens) : null
+        const sushiLiquidityToken = chainId === 10001 ? toSushiLiquidityToken(tokens) : null
         return {
           v2liquidityToken: v2FactoryAddress ? toV2LiquidityToken(tokens) : undefined,
           sushiLiquidityToken,
