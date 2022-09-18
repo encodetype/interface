@@ -43,7 +43,8 @@ export default function ManageTokens({
   setModalView: (view: CurrencyModalView) => void
   setImportToken: (token: Token) => void
 }) {
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
 
   const [searchQuery, setSearchQuery] = useState<string>('')
   const theme = useTheme()

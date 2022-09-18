@@ -53,7 +53,8 @@ export function AdvancedSwapDetails({
   hideInfoTooltips = false,
 }: AdvancedSwapDetailsProps) {
   const theme = useTheme()
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
   const nativeCurrency = useNativeCurrency()
   const redesignFlag = useRedesignFlag()
   const redesignFlagEnabled = redesignFlag === RedesignVariant.Enabled

@@ -94,7 +94,8 @@ function listUrlRowHTMLId(listUrl: string) {
 }
 
 const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
   const listsByUrl = useAppSelector((state) => state.lists.byUrl)
   const dispatch = useAppDispatch()
   const { current: list, pendingUpdate: pending } = listsByUrl[listUrl]
@@ -241,7 +242,8 @@ export function ManageLists({
   setImportList: (list: TokenList) => void
   setListUrl: (url: string) => void
 }) {
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
   const theme = useTheme()
 
   const [listUrlInput, setListUrlInput] = useState<string>('')

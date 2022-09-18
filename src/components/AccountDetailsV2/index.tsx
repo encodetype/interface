@@ -47,9 +47,11 @@ const IconStyleWrap = styled.span`
 `
 
 export const TransactionSummary = ({ transactionDetails }: { transactionDetails: TransactionDetails }) => {
-  const { chainId = 1 } = useWeb3React()
+  const { chainId } = useWeb3React()
   const tx = transactionDetails
-  const { explorer } = getChainInfoOrDefault(chainId ? chainId : SupportedChainId.MAINNET)
+  const { explorer } = getChainInfoOrDefault(
+    chainId ? chainId : SupportedChainId.MAINNET || SupportedChainId.MAINNETPOW
+  )
   const { info, receipt, hash } = tx
 
   const transactionState = useMemo(() => {

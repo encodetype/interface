@@ -55,7 +55,10 @@ export default memo(function SwapRoute({ trade, syncing, fixedOpen = false, ...r
   const autoRouterSupported = useAutoRouterSupported()
   const routes = getTokenPath(trade)
   const [open, setOpen] = useState(false)
-  const { chainId } = useWeb3React()
+
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
+
   const redesignFlag = useRedesignFlag()
   const redesignFlagEnabled = redesignFlag === RedesignVariant.Enabled
 

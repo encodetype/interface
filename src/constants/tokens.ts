@@ -11,6 +11,14 @@ export const USDC_MAINNET = new Token(
   'USDC',
   'USD//C'
 )
+export const USDC_MAINNETPOW = new Token(
+  SupportedChainId.MAINNET,
+  '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  6,
+  'USDC',
+  'USD//C'
+)
+
 export const USDC_ROPSTEN = new Token(
   SupportedChainId.ROPSTEN,
   '0x07865c6e87b9f70255377e024ace6630c1eaa37f',
@@ -125,6 +133,7 @@ export const DAI_OPTIMISM = new Token(
 )
 export const USDC: { [chainId in SupportedChainId]: Token } = {
   [SupportedChainId.MAINNET]: USDC_MAINNET,
+  [SupportedChainId.MAINNETPOW]: USDC_MAINNETPOW,
   [SupportedChainId.ARBITRUM_ONE]: USDC_ARBITRUM,
   [SupportedChainId.OPTIMISM]: USDC_OPTIMISM,
   [SupportedChainId.ARBITRUM_RINKEBY]: USDC_ARBITRUM_RINKEBY,
@@ -338,6 +347,7 @@ export const CEUR_CELO_ALFAJORES = new Token(
 
 export const UNI: { [chainId: number]: Token } = {
   [SupportedChainId.MAINNET]: new Token(SupportedChainId.MAINNET, UNI_ADDRESS[1], 18, 'UNI', 'Uniswap'),
+  [SupportedChainId.MAINNETPOW]: new Token(SupportedChainId.MAINNET, UNI_ADDRESS[1], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.RINKEBY]: new Token(SupportedChainId.RINKEBY, UNI_ADDRESS[4], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.ROPSTEN]: new Token(SupportedChainId.ROPSTEN, UNI_ADDRESS[3], 18, 'UNI', 'Uniswap'),
   [SupportedChainId.GOERLI]: new Token(SupportedChainId.GOERLI, UNI_ADDRESS[5], 18, 'UNI', 'Uniswap'),
@@ -348,6 +358,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   ...(WETH9 as Record<SupportedChainId, Token>),
   [SupportedChainId.OPTIMISM]: new Token(
     SupportedChainId.OPTIMISM,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [SupportedChainId.MAINNETPOW]: new Token(
+    SupportedChainId.MAINNET,
     '0x4200000000000000000000000000000000000006',
     18,
     'WETH',
@@ -458,6 +475,7 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
 export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in SupportedChainId]?: string } } = {
   USDC: {
     [SupportedChainId.MAINNET]: USDC_MAINNET.address,
+    [SupportedChainId.MAINNETPOW]: USDC_MAINNETPOW.address,
     [SupportedChainId.ARBITRUM_ONE]: USDC_ARBITRUM.address,
     [SupportedChainId.OPTIMISM]: USDC_OPTIMISM.address,
     [SupportedChainId.ARBITRUM_RINKEBY]: USDC_ARBITRUM_RINKEBY.address,

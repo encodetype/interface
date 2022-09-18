@@ -3,6 +3,7 @@
  */
 export enum SupportedChainId {
   MAINNET = 1,
+  MAINNETPOW = 10001,
   ROPSTEN = 3,
   RINKEBY = 4,
   GOERLI = 5,
@@ -23,6 +24,7 @@ export enum SupportedChainId {
 
 export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.MAINNET]: 'mainnet',
+  [SupportedChainId.MAINNETPOW]: 'mainnet',
   [SupportedChainId.ROPSTEN]: 'ropsten',
   [SupportedChainId.RINKEBY]: 'rinkeby',
   [SupportedChainId.GOERLI]: 'goerli',
@@ -50,6 +52,7 @@ export function isSupportedChain(chainId: number | null | undefined): chainId is
 
 export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   SupportedChainId.MAINNET,
+  SupportedChainId.MAINNETPOW,
   SupportedChainId.POLYGON,
   SupportedChainId.CELO,
   SupportedChainId.OPTIMISM,
@@ -82,6 +85,7 @@ export type SupportedTestnetChainId = typeof TESTNET_CHAIN_IDS[number]
  */
 export const L1_CHAIN_IDS = [
   SupportedChainId.MAINNET,
+  SupportedChainId.MAINNETPOW,
   SupportedChainId.ROPSTEN,
   SupportedChainId.RINKEBY,
   SupportedChainId.GOERLI,

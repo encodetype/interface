@@ -27,6 +27,7 @@ import {
   TRIBE,
   USDC_ARBITRUM,
   USDC_MAINNET,
+  USDC_MAINNETPOW,
   USDC_OPTIMISM,
   USDC_POLYGON,
   USDT,
@@ -66,6 +67,13 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDT,
     WBTC,
   ],
+  [SupportedChainId.MAINNETPOW]: [
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNETPOW],
+    DAI,
+    USDC_MAINNETPOW,
+    USDT,
+    WBTC,
+  ],
   [SupportedChainId.OPTIMISM]: [
     ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.OPTIMISM],
     DAI_OPTIMISM,
@@ -99,6 +107,17 @@ export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: To
     [WBTC.address]: [renBTC],
     [renBTC.address]: [WBTC],
   },
+  [SupportedChainId.MAINNETPOW]: {
+    '0xF16E4d813f4DcfDe4c5b44f305c908742De84eF0': [ETH2X_FLI],
+    [rETH2.address]: [sETH2],
+    [SWISE.address]: [sETH2],
+    [FEI.address]: [TRIBE],
+    [TRIBE.address]: [FEI],
+    [FRAX.address]: [FXS],
+    [FXS.address]: [FRAX],
+    [WBTC.address]: [renBTC],
+    [renBTC.address]: [WBTC],
+  },
 }
 /**
  * Some tokens can only be swapped via certain pairs, so we override the list of bases that are considered for these
@@ -107,6 +126,9 @@ export const ADDITIONAL_BASES: { [chainId: number]: { [tokenAddress: string]: To
 export const CUSTOM_BASES: { [chainId: number]: { [tokenAddress: string]: Token[] } } = {
   [SupportedChainId.MAINNET]: {
     [AMPL.address]: [DAI, WRAPPED_NATIVE_CURRENCY[SupportedChainId.MAINNET] as Token],
+  },
+  [SupportedChainId.MAINNETPOW]: {
+    [AMPL.address]: [DAI, WRAPPED_NATIVE_CURRENCY[SupportedChainId.MAINNETPOW] as Token],
   },
 }
 
@@ -121,6 +143,14 @@ export const COMMON_BASES: ChainCurrencyList = {
     USDT,
     WBTC,
     WRAPPED_NATIVE_CURRENCY[SupportedChainId.MAINNET] as Token,
+  ],
+  [SupportedChainId.MAINNETPOW]: [
+    nativeOnChain(SupportedChainId.MAINNETPOW),
+    DAI,
+    USDC_MAINNET,
+    USDT,
+    WBTC,
+    WRAPPED_NATIVE_CURRENCY[SupportedChainId.MAINNETPOW] as Token,
   ],
   [SupportedChainId.ROPSTEN]: [
     nativeOnChain(SupportedChainId.ROPSTEN),
@@ -197,6 +227,13 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     USDT,
     WBTC,
   ],
+  [SupportedChainId.MAINNETPOW]: [
+    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNETPOW],
+    DAI,
+    USDC_MAINNETPOW,
+    USDT,
+    WBTC,
+  ],
 }
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
   [SupportedChainId.MAINNET]: [
@@ -211,6 +248,20 @@ export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
       ),
     ],
     [USDC_MAINNET, USDT],
+    [DAI, USDT],
+  ],
+  [SupportedChainId.MAINNETPOW]: [
+    [
+      new Token(SupportedChainId.MAINNET, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
+      new Token(
+        SupportedChainId.MAINNET,
+        '0x39AA39c021dfbaE8faC545936693aC917d5E7563',
+        8,
+        'cUSDC',
+        'Compound USD Coin'
+      ),
+    ],
+    [USDC_MAINNETPOW, USDT],
     [DAI, USDT],
   ],
 }

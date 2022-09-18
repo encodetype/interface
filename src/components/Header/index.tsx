@@ -27,7 +27,7 @@ import NetworkSelector from './NetworkSelector'
 
 const HeaderFrame = styled.div<{ showBackground: boolean }>`
   display: grid;
-  grid-template-columns: 120px 1fr 120px;
+  grid-template-columns: 60px 1fr 120px;
   align-items: center;
   justify-content: space-between;
   align-items: center;
@@ -86,9 +86,10 @@ const HeaderElement = styled.div`
   `};
 `
 
+//justify-self: center;
+
 const HeaderLinks = styled(Row)`
-  justify-self: center;
-  background-color: ${({ theme }) => theme.deprecated_bg0};
+  background-color: ${({ theme }) => theme.deprecated_bg8};
   width: max-content;
   padding: 2px;
   border-radius: 16px;
@@ -196,7 +197,7 @@ const StyledNavLink = styled(NavLink)`
   outline: none;
   cursor: pointer;
   text-decoration: none;
-  color: ${({ theme }) => theme.deprecated_text2};
+  color: ${({ theme }) => theme.deprecated_text1};
   font-size: 1rem;
   font-weight: 500;
   padding: 8px 12px;
@@ -207,8 +208,8 @@ const StyledNavLink = styled(NavLink)`
     border-radius: 14px;
     font-weight: 600;
     justify-content: center;
-    color: ${({ theme }) => theme.deprecated_text1};
-    background-color: ${({ theme }) => theme.deprecated_bg1};
+    color: ${({ theme }) => theme.deprecated_text6};
+    background-color: ${({ theme }) => theme.deprecated_bg7};
   }
 
   :hover,
@@ -304,7 +305,7 @@ export default function Header() {
         >
           <Trans>Pool</Trans>
         </StyledNavLink>
-        {(!chainId || chainId === SupportedChainId.MAINNET) && (
+        {(!chainId || chainId === SupportedChainId.MAINNET || chainId === SupportedChainId.MAINNETPOW) && (
           <StyledNavLink id={`vote-nav-link`} to={'/vote'}>
             <Trans>Vote</Trans>
           </StyledNavLink>

@@ -15,7 +15,8 @@ const RowNoFlex = styled(AutoRow)`
 `
 
 export default function TransactionPopup({ hash }: { hash: string }) {
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
 
   const tx = useTransaction(hash)
   const theme = useTheme()

@@ -18,7 +18,10 @@ export function useFetchListCallback(): (listUrl: string, sendDispatch?: boolean
       const requestId = nanoid()
       sendDispatch && dispatch(fetchTokenList.pending({ requestId, url: listUrl }))
       return getTokenList(listUrl, (ensName: string) =>
-        resolveENSContentHash(ensName, RPC_PROVIDERS[SupportedChainId.MAINNET])
+        resolveENSContentHash(
+          ensName,
+          RPC_PROVIDERS[SupportedChainId.MAINNET] || RPC_PROVIDERS[SupportedChainId.MAINNETPOW]
+        )
       )
         .then((tokenList) => {
           sendDispatch && dispatch(fetchTokenList.fulfilled({ url: listUrl, tokenList, requestId }))

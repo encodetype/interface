@@ -96,7 +96,7 @@ const AuthenticatedHeader = () => {
   const {
     nativeCurrency: { symbol: nativeCurrencySymbol },
     explorer,
-  } = getChainInfoOrDefault(chainId ? chainId : SupportedChainId.MAINNET)
+  } = getChainInfoOrDefault(chainId ? chainId : SupportedChainId.MAINNET || SupportedChainId.MAINNETPOW)
 
   const unclaimedAmount: CurrencyAmount<Token> | undefined = useUserUnclaimedAmount(account)
   const isUnclaimed = useUserHasAvailableClaim(account)

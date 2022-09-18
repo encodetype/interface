@@ -24,6 +24,10 @@ export const FALLBACK_URLS: { [key in SupportedChainId]: string[] } = {
     'https://rpc.ankr.com/eth',
     'https://eth-mainnet.public.blastapi.io',
   ],
+  [SupportedChainId.MAINNETPOW]: [
+    // "Safe" URLs
+    'https://mainnet.ethereumpow.org',
+  ],
   [SupportedChainId.ROPSTEN]: [
     // "Fallback" URLs
     'https://rpc.ankr.com/eth_ropsten',
@@ -98,6 +102,7 @@ export const RPC_URLS: { [key in SupportedChainId]: string[] } = {
     `https://mainnet.infura.io/v3/${INFURA_KEY}`,
     ...FALLBACK_URLS[SupportedChainId.MAINNET],
   ],
+  [SupportedChainId.MAINNETPOW]: [`https://mainnet.ethereumpow.org`, ...FALLBACK_URLS[SupportedChainId.MAINNETPOW]],
   [SupportedChainId.RINKEBY]: [
     `https://rinkeby.infura.io/v3/${INFURA_KEY}`,
     ...FALLBACK_URLS[SupportedChainId.RINKEBY],

@@ -194,6 +194,8 @@ export function CurrencySearch({
     return () => clearTimeout(tokenLoaderTimer)
   }, [])
 
+  const _chainId = chainId == 10001 ? 1 : chainId
+
   return (
     <ContentWrapper redesignFlag={redesignFlagEnabled}>
       <Trace name={EventName.TOKEN_SELECTOR_OPENED} modal={ModalName.TOKEN_SELECTOR} shouldLogImpression>
@@ -219,7 +221,7 @@ export function CurrencySearch({
           </Row>
           {showCommonBases && (
             <CommonBases
-              chainId={chainId}
+              chainId={_chainId}
               onSelect={handleCurrencySelect}
               selectedCurrency={selectedCurrency}
               searchQuery={searchQuery}

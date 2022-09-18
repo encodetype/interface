@@ -33,6 +33,10 @@ export function useNetworkTokenBalances({ address }: useNetworkTokenBalancesArgs
           new Token(SupportedChainId.MAINNET, address, 18),
           1e18
         ),
+        [SupportedChainId.MAINNETPOW]: CurrencyAmount.fromRawAmount(
+          new Token(SupportedChainId.MAINNET, address, 18),
+          1e18
+        ),
         [SupportedChainId.RINKEBY]: CurrencyAmount.fromRawAmount(
           new Token(SupportedChainId.RINKEBY, address, 9),
           10e18

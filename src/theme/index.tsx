@@ -155,19 +155,22 @@ function oldColors(darkMode: boolean): Colors {
 
     // text
     deprecated_text1: darkMode ? '#FFFFFF' : '#000000',
-    deprecated_text2: darkMode ? '#C3C5CB' : '#565A69',
+    deprecated_text2: darkMode ? '#FFFFFF' : '#565A69',
     deprecated_text3: darkMode ? '#8F96AC' : '#6E727D',
     deprecated_text4: darkMode ? '#B2B9D2' : '#C3C5CB',
     deprecated_text5: darkMode ? '#2C2F36' : '#EDEEF2',
+    deprecated_text6: darkMode ? '#333333' : '#EDEEF2',
 
     // backgrounds / greys
     deprecated_bg0: darkMode ? '#191B1F' : '#FFF',
-    deprecated_bg1: darkMode ? '#212429' : '#F7F8FA',
+    deprecated_bg1: darkMode ? '#04090d' : '#F7F8FA',
     deprecated_bg2: darkMode ? '#2C2F36' : '#EDEEF2',
     deprecated_bg3: darkMode ? '#40444F' : '#CED0D9',
     deprecated_bg4: darkMode ? '#565A69' : '#888D9B',
     deprecated_bg5: darkMode ? '#6C7284' : '#888D9B',
     deprecated_bg6: darkMode ? '#1A2028' : '#6C7284',
+    deprecated_bg7: darkMode ? '#18C200' : '#6C7284',
+    deprecated_bg8: darkMode ? '#152421' : '#6C7284',
 
     //specialty colors
     deprecated_modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
@@ -220,6 +223,7 @@ function oldColorsUpdated(darkMode: boolean): Colors {
     deprecated_text3: darkMode ? colorsDark.textTertiary : colorsLight.textTertiary,
     deprecated_text4: darkMode ? ColorsPalette.gray200 : ColorsPalette.gray300,
     deprecated_text5: darkMode ? ColorsPalette.gray500 : ColorsPalette.gray50,
+    deprecated_text6: darkMode ? ColorsPalette.gray500 : ColorsPalette.gray50,
 
     // backgrounds / greys
     deprecated_bg0: darkMode ? ColorsPalette.gray900 : ColorsPalette.white,
@@ -229,6 +233,8 @@ function oldColorsUpdated(darkMode: boolean): Colors {
     deprecated_bg4: darkMode ? ColorsPalette.gray500 : ColorsPalette.gray300,
     deprecated_bg5: darkMode ? ColorsPalette.gray400 : ColorsPalette.gray400,
     deprecated_bg6: darkMode ? ColorsPalette.gray300 : ColorsPalette.gray500,
+    deprecated_bg7: darkMode ? ColorsPalette.gray300 : ColorsPalette.gray500,
+    deprecated_bg8: darkMode ? ColorsPalette.gray300 : ColorsPalette.gray500,
 
     //specialty colors
     deprecated_modalBG: darkMode ? opacify(40, ColorsPalette.black) : opacify(30, ColorsPalette.black),

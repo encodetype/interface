@@ -26,7 +26,8 @@ export default function Web3Provider({ children }: { children: ReactNode }) {
 
 function Tracer() {
   const { chainId, provider } = useWeb3React()
-  const networkProvider = RPC_PROVIDERS[(chainId || SupportedChainId.MAINNET) as SupportedChainId]
+  const networkProvider =
+    RPC_PROVIDERS[(chainId || SupportedChainId.MAINNET || SupportedChainId.MAINNETPOW) as SupportedChainId]
   const shouldTrace = useTraceJsonRpcFlag() === TraceJsonRpcVariant.Enabled
 
   useEffect(() => {

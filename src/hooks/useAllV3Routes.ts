@@ -63,7 +63,9 @@ export function useAllV3Routes(
   currencyIn?: Currency,
   currencyOut?: Currency
 ): { loading: boolean; routes: Route<Currency, Currency>[] } {
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+  const chainId = _chainId == 10001 ? 1 : _chainId
+
   const { pools, loading: poolsLoading } = useV3SwapPools(currencyIn, currencyOut)
 
   return useMemo(() => {

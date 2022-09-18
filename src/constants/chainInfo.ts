@@ -64,6 +64,16 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: colorsDark.chain_1,
   },
+  [SupportedChainId.MAINNETPOW]: {
+    networkType: NetworkType.L1,
+    docs: 'https://docs.uniswap.org/',
+    explorer: 'https://www.oklink.com/en/ethw/',
+    infoLink: 'https://info.uniswap.org/#/',
+    label: 'Ethereum (PoW)',
+    logoUrl: ethereumLogoUrl,
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    color: colorsDark.chain_1,
+  },
   [SupportedChainId.RINKEBY]: {
     networkType: NetworkType.L1,
     docs: 'https://docs.uniswap.org/',
@@ -240,7 +250,7 @@ export function getChainInfo(chainId: any): any {
   return undefined
 }
 
-export const MAINNET_INFO = CHAIN_INFO[SupportedChainId.MAINNET]
+export const MAINNET_INFO = CHAIN_INFO[SupportedChainId.MAINNET] || CHAIN_INFO[SupportedChainId.MAINNETPOW]
 export function getChainInfoOrDefault(chainId: number | undefined) {
   return getChainInfo(chainId) ?? MAINNET_INFO
 }

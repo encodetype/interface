@@ -14,6 +14,7 @@ import FilterOption from './FilterOption'
 
 const NETWORKS = [
   SupportedChainId.MAINNET,
+  SupportedChainId.MAINNETPOW,
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.POLYGON,
   SupportedChainId.OPTIMISM,

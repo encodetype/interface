@@ -19,7 +19,9 @@ export function useV3SwapPools(
   pools: Pool[]
   loading: boolean
 } {
-  const { chainId } = useWeb3React()
+  const { chainId: _chainId } = useWeb3React()
+
+  const chainId = _chainId == 10001 ? 1 : _chainId
 
   const allCurrencyCombinations = useAllCurrencyCombinations(currencyIn, currencyOut)
 

@@ -7,6 +7,7 @@ import { FALLBACK_URLS, RPC_URLS } from 'constants/networks'
 function getRpcUrl(chainId: SupportedChainId): string {
   switch (chainId) {
     case SupportedChainId.MAINNET:
+    case SupportedChainId.MAINNETPOW:
     case SupportedChainId.RINKEBY:
     case SupportedChainId.ROPSTEN:
     case SupportedChainId.KOVAN:

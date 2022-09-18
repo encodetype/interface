@@ -12,6 +12,7 @@ import store, { AppState } from '../../state/index'
 
 const CHAIN_SUBGRAPH_URL: Record<number, string> = {
   [SupportedChainId.MAINNET]: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
+  [SupportedChainId.MAINNETPOW]: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
   [SupportedChainId.RINKEBY]: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
 
   [SupportedChainId.ARBITRUM_ONE]: 'https://api.thegraph.com/subgraphs/name/ianlapham/arbitrum-minimal',
@@ -34,7 +35,9 @@ const fetchQuery = (params: RequestParameters, variables: Variables): Observable
   const chainId = (store.getState() as AppState).application.chainId
 
   const subgraphUrl =
-    chainId && CHAIN_SUBGRAPH_URL[chainId] ? CHAIN_SUBGRAPH_URL[chainId] : CHAIN_SUBGRAPH_URL[SupportedChainId.MAINNET]
+    chainId && CHAIN_SUBGRAPH_URL[chainId]
+      ? CHAIN_SUBGRAPH_URL[chainId]
+      : CHAIN_SUBGRAPH_URL[SupportedChainId.MAINNET] || CHAIN_SUBGRAPH_URL[SupportedChainId.MAINNETPOW]
 
   const body = JSON.stringify({
     query: params.text, // GraphQL text from input

@@ -73,6 +73,7 @@ export interface Colors {
   deprecated_text3: Color
   deprecated_text4: Color
   deprecated_text5: Color
+  deprecated_text6: Color
 
   // backgrounds / greys
   deprecated_bg0: Color
@@ -82,6 +83,8 @@ export interface Colors {
   deprecated_bg4: Color
   deprecated_bg5: Color
   deprecated_bg6: Color
+  deprecated_bg7: Color
+  deprecated_bg8: Color
 
   deprecated_modalBG: Color
   deprecated_advancedBG: Color
